@@ -4,10 +4,28 @@ import sys
 import wordcase
 
 
-protected_words = {}
+protected_words = {
+    "the",
+    "be",
+    "to",
+    "of",
+    "and",
+    "a",
+    "in",
+    "that",
+    "i",
+    "it",
+    "for",
+    "not",
+    "on",
+    "he",
+    "as",
+    "you",
+    "do"
+}
 
 def squidify_word(s):
-    if s in protected_words:
+    if s.lower() in protected_words:
         return s
     else:
         squidified = re.sub(r"(?i)^((?:[^aeiouy])+u?)|^()", "squ", s)
