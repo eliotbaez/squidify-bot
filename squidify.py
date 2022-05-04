@@ -9,7 +9,7 @@ def squidify_word(s):
     if s in protected_words:
         return s
     else:
-        squidified = re.sub(r"(?i)^[bcdfghjklmnpqrstvwxyz]+", "squ", s)
+        squidified = re.sub(r"(?i)^((?:[^aeiou])+u?)|^()", "squ", s)
         return squidified
 
 
