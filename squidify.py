@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import re
 import sys
+import wordcase
 
 
 protected_words = {}
@@ -10,6 +11,8 @@ def squidify_word(s):
         return s
     else:
         squidified = re.sub(r"(?i)^((?:[^aeiou])+u?)|^()", "squ", s)
+        c = wordcase.get_case(s)
+        squidified = wordcase.set_case(squidified, c)
         return squidified
 
 
