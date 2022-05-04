@@ -10,7 +10,7 @@ def squidify_word(s):
     if s in protected_words:
         return s
     else:
-        squidified = re.sub(r"(?i)^((?:[^aeiou])+u?)|^()", "squ", s)
+        squidified = re.sub(r"(?i)^((?:[^aeiouy])+u?)|^()", "squ", s)
         c = wordcase.get_case(s)
         squidified = wordcase.set_case(squidified, c)
         return squidified
