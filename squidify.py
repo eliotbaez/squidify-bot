@@ -13,16 +13,21 @@ def squidify_word(s):
         return squidified
 
 
-def squidify(file):
+def squidify_string(string):
+    squidified_words = []
+    for word in string.split():
+        squidified_words.append(squidify_word(word))
+    return ' '.join(squidified_words)
+
+
+def squidify_file(file):
     for line in file:
-        for word in line.split():
-            print(squidify_word(word), end=' ')
-        print()
+        print(squidify_string(line))
 
 
 if __name__ == "__main__":
     if len(sys.argv) == 2:
         with open(sys.argv[1]) as f:
-            squidify(f)
+            squidify_file(f)
     else: 
-        squidify(sys.stdin)
+        squidify_file(sys.stdin)
